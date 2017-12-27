@@ -5,7 +5,7 @@ import { shallowToJson } from 'enzyme-to-json';
 import Column from '../Column';
 
 describe('Column', () => {
-  it('Column renders without crashing', () => {
+  it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Column properties={[]} />, div);
   });

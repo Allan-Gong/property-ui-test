@@ -2,7 +2,6 @@ import React from 'react';
 import sinon from 'sinon';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-
 import Property from '../Property';
 
 const TEST_PROPERTY_DATA = {
@@ -32,9 +31,10 @@ describe('Property', () => {
     const output = shallow(
       <Property property={TEST_PROPERTY_DATA} buttonText="text" buttonAction={buttonAction} />
     );
-    // expect(wrapper.find(Link).length).toBe(5);
+
     output.find('.button-action').simulate('click');
-    expect(buttonAction.calledOnce);//.to.have.property('callCount', 1);
+    
+    expect(buttonAction.calledOnce);
   });
 });
 

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Property should render correctly 1`] = `
+<Card
+  className="property"
+  fluid={true}
+  key="1"
+>
+  <CardHeader
+    className="property-header"
+    style={
+      Object {
+        "background": "#ffe512",
+      }
+    }
+  >
+    <img
+      alt="Agency logo"
+      className="agency-logo"
+      src="http://i1.au.reastatic.net/agencylogo/XRWXMT/12/20120927204448.gif"
+    />
+  </CardHeader>
+  <Image
+    alt="Main"
+    as="img"
+    className="main-image"
+    src="http://i2.au.reastatic.net/640x480/20bfc8668a30e8cabf045a1cd54814a9042fc715a8be683ba196898333d68cec/main.jpg"
+    ui={true}
+  />
+  <CardContent>
+    <p
+      className="left floated price"
+    >
+      $726,500
+    </p>
+    <Button
+      as="button"
+      className="right floated button-action"
+      onClick={[Function]}
+      primary={true}
+    >
+      text
+    </Button>
+  </CardContent>
+</Card>
+`;

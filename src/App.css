@@ -1,0 +1,32 @@
+[class*="left floated"] {
+  float: left;
+}
+
+[class*="right floated"] {
+  float: right;
+} 
+
+.property-header {
+  text-align: left;
+}
+
+.property-header .agency-logo{
+  padding: 8px 7px;
+  display: inline-block; 
+}
+
+.price {
+  font-size: 1.5rem;
+}
+
+.property .button-action {
+  display: none;
+}
+
+.property:hover {
+  cursor: pointer;
+}
+
+.property:hover .button-action {
+  display: block;
+}

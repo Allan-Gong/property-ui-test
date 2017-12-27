@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Column should render correctly with given props 1`] = `
+<GridColumn>
+  <Segment>
+    <div
+      key="1"
+    >
+      test
+    </div>
+  </Segment>
+</GridColumn>
+`;

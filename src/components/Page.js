@@ -5,7 +5,6 @@ import Column from "./Column";
 import Property from "./Property";
 
 class Page extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -26,29 +25,44 @@ class Page extends React.Component {
     return results.concat(saved);
   };
 
-  savedPropertiesFromState = (properties) => this.state.savedIds.map(id => properties.find(p => p.id === id));
+  savedPropertiesFromState = properties =>
+    this.state.savedIds.map(id => properties.find(p => p.id === id));
 
-  addToSaved = (propertyId) => {
-    this.setState({savedIds: Array.from(new Set([...this.state.savedIds, propertyId]))});
-  }
+  addToSaved = propertyId => {
+    this.setState({
+      savedIds: Array.from(new Set([...this.state.savedIds, propertyId]))
+    });
+  };
 
-  removeFromSaved = (propertyId) => {
-    this.setState({savedIds: this.state.savedIds.filter((id) => id !== propertyId)});
-  }
+  removeFromSaved = propertyId => {
+    this.setState({
+      savedIds: this.state.savedIds.filter(id => id !== propertyId)
+    });
+  };
 
   constructPropertiesFromResults = () => {
     const results = this.props.propertyData.results;
-    return results.map(property => this.constructProperty(property, "Add property", this.addToSaved));
-  }
+    return results.map(property =>
+      this.constructProperty(property, "Add property", this.addToSaved)
+    );
+  };
 
   constructPropertiesFromSaved = () => {
     const all = this.allProperties();
-    return this.savedPropertiesFromState(all).map(property => this.constructProperty(property, "Remove property", this.removeFromSaved));
-  }
+    return this.savedPropertiesFromState(all).map(property =>
+      this.constructProperty(property, "Remove property", this.removeFromSaved)
+    );
+  };
 
-  constructProperty = (property, buttonText, buttonAction) => 
-    <Property key={property.id} property={property} buttonText={buttonText} buttonAction={buttonAction} />
-  
+  constructProperty = (property, buttonText, buttonAction) => (
+    <Property
+      key={property.id}
+      property={property}
+      buttonText={buttonText}
+      buttonAction={buttonAction}
+    />
+  );
+
   render() {
     const results = this.constructPropertiesFromResults();
     const saved = this.constructPropertiesFromSaved();
@@ -67,7 +81,7 @@ class Page extends React.Component {
 Page.propTypes = {
   propertyData: PropTypes.shape({
     results: PropTypes.array.isRequired,
-    saved: PropTypes.array.isRequired,
+    saved: PropTypes.array.isRequired
   }).isRequired
 };
 

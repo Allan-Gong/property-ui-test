@@ -1,8 +1,8 @@
-import React from 'react';
-import { Segment } from 'semantic-ui-react';
-import './App.css';
-import Page from './components/Page';
-import PropertyData from './data/PropertyData';
+import React from "react";
+import { Segment } from "semantic-ui-react";
+import "./App.css";
+import Page from "./components/Page";
+import PropertyData from "./data/PropertyData";
 
 const App = () => (
   <Segment>

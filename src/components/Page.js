@@ -43,23 +43,49 @@ class Page extends React.Component {
   constructPropertiesFromResults = () => {
     const results = this.props.propertyData.results;
     return results.map(property =>
-      this.constructProperty(property, "Add property", this.addToSaved)
+      this.constructPropertiesFromResult(property)
     );
+  };
+
+  constructPropertiesFromResult = property => {
+    const isSaved = this.state.savedIds.includes(property.id);
+
+    return isSaved
+      ? this.constructProperty({
+          property,
+          buttonText: "Added",
+          buttonDisabled: true
+        })
+      : this.constructProperty({
+          property,
+          buttonText: "Add property",
+          buttonAction: this.addToSaved
+        });
   };
 
   constructPropertiesFromSaved = () => {
     const all = this.allProperties();
     return this.savedPropertiesFromState(all).map(property =>
-      this.constructProperty(property, "Remove property", this.removeFromSaved)
+      this.constructProperty({
+        property,
+        buttonText: "Remove property",
+        buttonAction: this.removeFromSaved
+      })
     );
   };
 
-  constructProperty = (property, buttonText, buttonAction) => (
+  constructProperty = ({
+    property,
+    buttonText,
+    buttonAction = () => {},
+    buttonDisabled = false
+  }) => (
     <Property
       key={property.id}
       property={property}
       buttonText={buttonText}
       buttonAction={buttonAction}
+      buttonDisabled={buttonDisabled}
     />
   );
 

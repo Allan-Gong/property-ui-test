@@ -2,7 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Card, Image, Button } from "semantic-ui-react";
 
-const Property = ({ property, buttonText, buttonAction }) => {
+const Property = ({
+  property,
+  buttonText,
+  buttonAction,
+  buttonDisabled = false
+}) => {
   const headerStyle = {
     background: property.agency.brandingColors.primary
   };
@@ -21,6 +26,7 @@ const Property = ({ property, buttonText, buttonAction }) => {
         <p className="left floated price">{property.price}</p>
         <Button
           primary
+          disabled={buttonDisabled}
           className="right floated button-action"
           onClick={() => buttonAction(property.id)}
         >
@@ -44,7 +50,8 @@ Property.propTypes = {
     }).isRequired
   }).isRequired,
   buttonText: PropTypes.string.isRequired,
-  buttonAction: PropTypes.func.isRequired
+  buttonAction: PropTypes.func.isRequired,
+  buttonDisabled: PropTypes.bool.isRequired
 };
 
 export default Property;
